@@ -66,13 +66,14 @@ THEN I am prompted to select an employee to update and their new role and this i
 10. Answer the prompts in the terminal to view, add, and update the database. (Watch the Demo walkthrough video for more detail)
 
 ## Installation Process
-1. Clone the repository: [EMPLOYEE TRACKER](https://github.com/sonam-git/Note_Taker)
+1. Clone the repository: [EMPLOYEE TRACKER](https://github.com/sonam-git/Employee_Tracker)
 ( or) Download Zip Folder from Repository from GitHub
 2. Install the following: 
- - Node.JS [Version 16.18.1](https://nodejs.org/en/blog/release/v18.15.0/)
+ - Node.js [Version 16.18.1](https://nodejs.org/en/blog/release/v18.15.0/)
  - Inquirer.js: [Version 8.2.4](https://www.npmjs.com/package/inquirer/v/8.2.4)
  - MYSQL2: [Version 3.2.4](https://www.npmjs.com/package/mysql2)
  - Console.table: [Version 0.10.0](https://www.npmjs.com/package/console.table)
+ - Cfonts: [Version 3.1.1](https://www.npmjs.com/package/cfonts)
  
 3. Open the cloned repository in any source code editor.
 4. Open the integrated terminal and complete the respective installation guides provided above in section (2) to ensure the cloned documentation will operate
@@ -100,7 +101,7 @@ THEN I am prompted to select an employee to update and their new role and this i
 [Solution URL Link:](https://github.com/sonam-git/Employee_Tracker)
 
 ## Demo Walkthrough Video:
-[Click here to watch the Demo](https://drive.google.com/file/d/1A6Pg2u-JymIgOtlhLAJOZLef1by6rxvx/view)
+[Click here to watch the Demo](https://drive.google.com/file/d/1ow36sZ3Lm_6Hc-FbJjcBBt93Ygm6Rw6M/view)
 
 ## Screenshots:
 

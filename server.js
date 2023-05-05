@@ -58,16 +58,13 @@ function startingQuestion() {
           "View Emplyoee By Department",
           "View Emplyoee By Manager",
           "Add Employee",
-          "Delete Employee",
           "Update Employee",
           "Update Employee Manager",
           "View All Roles",
           "Add Role",
-          "Delete Role",
           "Update Employee Role",
           "View All Departments",
           "Add Department",
-          "Delete Department",
           "View the total utilized budget of a department",
           "Delete Departments | Roles | Employees",
           "Exit",
@@ -88,9 +85,6 @@ function startingQuestion() {
         case "Add Employee":
           addEmployee();
           break;
-        case "Delete Employee":
-          deleteEmployee();
-          break;
         case "Update Employee":
           updateEmployee();
           break;
@@ -103,9 +97,6 @@ function startingQuestion() {
         case "Add Role":
           addRole();
           break;
-        case "Delete Role":
-          deleteRole();
-          break;
         case "Update Employee Role":
           updateRole();
           break;
@@ -114,9 +105,6 @@ function startingQuestion() {
           break;
         case "Add Department":
           addDepartment();
-          break;
-        case "Delete Department":
-          deleteDepartment();
           break;
         case "View the total utilized budget of a department":
           viewTotalUtilizedBudgetOfDepartment();

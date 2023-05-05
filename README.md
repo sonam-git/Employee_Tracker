@@ -105,6 +105,13 @@ THEN I am prompted to select an employee to update and their new role and this i
 
 ## Screenshots:
 
+### Folder / Files View
+
+![Screenshot 2023-05-04 at 9 50 17 PM](https://user-images.githubusercontent.com/89502092/236380021-5cd6dd19-bf1b-4cee-b479-c0d17db96d7e.png)
+
+### Terminal View
+
+![Screenshot 2023-05-04 at 9 51 02 PM](https://user-images.githubusercontent.com/89502092/236379974-7dee1784-ddc0-4f23-8f6a-cfcf15de9ced.png)
 
 
 ## License

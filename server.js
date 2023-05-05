@@ -45,7 +45,7 @@ db.connect(function (err) {
   startingQuestion();
 });
 
-// Starting Question
+// Starting Question Function
 function startingQuestion() {
   inquirer
     .prompt([
@@ -196,6 +196,7 @@ const viewEmployeeByManager = () => {
 
 // function to add an employee
 function addEmployee() {
+  // get employee from employee table
   const sql2 = `SELECT * FROM employee`;
   db.query(sql2, (err, response) => {
     if (err) throw err;
@@ -203,7 +204,7 @@ function addEmployee() {
       name: employees.first_name.concat(" ", employees.last_name),
       value: employees.id,
     }));
-
+// get role from role table
     const sql3 = `SELECT * FROM role`;
     db.query(sql3, (err, response) => {
       if (err) throw err;
@@ -211,7 +212,7 @@ function addEmployee() {
         name: role.title,
         value: role.id,
       }));
-
+// get department from department table
       const sql4 = `SELECT * FROM department`;
       db.query(sql4, (err, response) => {
         if (err) throw err;
@@ -332,7 +333,7 @@ const updateEmployee = () => {
         const employee = empChoice.name;
         const params = [];
         params.push(employee);
-
+// get role from role table
         const roleSql = `SELECT * FROM role`;
 
         db.query(roleSql, (err, data) => {
@@ -417,8 +418,6 @@ const updateEmployeeManager = () => {
             params[0] = employee;
             params[1] = employee1;
 
-            // console.log(params)
-
             const sql = `UPDATE employee SET manager_id = ? WHERE id = ?`;
 
             db.query(sql, params, (err, result) => {
@@ -489,42 +488,33 @@ function addRole() {
 
 // function to delete role
 const deleteRole = () => {
-  // retrieve all available roles from the database
-  const deleteSql = `SELECT * FROM role`;
+  const job_titleSql = `SELECT * FROM role`;
 
-  db.query(deleteSql, (err, data) => {
+db.query(job_titleSql, (err, data) => {
     if (err) throw err;
-    
-    // map through the retrieved roles to create an array of choices
-    const choices = data.map((role) => ({
-      name: `${role.title} (${role.id}) - ${role.salary}`,
-      value: role.id,
+
+    const job_title = data.map(({
+      title,
+      id
+    }) => ({
+      name: title,
+      value: id
     }));
 
-    // add a "Go Back" option to the list of choices
-    choices.push({ name: "Go Back", value: null });
-    
-    inquirer
-      .prompt({
-        type: "list",
-        name: "roleId",
-        message: "Select the role you want to delete:",
-        choices: choices,
-      })
-      .then((answer) => {
-        // check if the user chose the "Go Back" option
-        if (answer.roleId === null) {
-          // go back to the deleteDepartmentsRolesEmployees function
-          deleteDepartmentsRolesEmployees();
-          return;
-        }
-        
-        const query = "DELETE FROM role WHERE id = ?";
-        db.query(query, [answer.roleId], (err, data) => {
+    inquirer.prompt([{
+      type: 'list',
+      name: 'job_title',
+      message: "What role do you want to delete?",
+      choices: job_title
+    }])
+      .then(job_titleChoice => {
+        const job_title = job_titleChoice.job_title;
+        const sql = `DELETE FROM role WHERE id = ?`;
+
+       db.query(sql, job_title, (err, result) => {
           if (err) throw err;
-          console.log(`Deleted role with ID ${answer.roleId} from the database!`);
-          
-          // show all roles
+          console.log("Successfully deleted!");
+
           viewRoles();
         });
       });
@@ -699,7 +689,7 @@ function viewTotalUtilizedBudgetOfDepartment() {
   });
 }
 
-// Function to DELETE Departments Roles Employees
+// Function to DELETE Department / Role / Employee
 function deleteDepartmentsRolesEmployees() {
   inquirer
       .prompt({
